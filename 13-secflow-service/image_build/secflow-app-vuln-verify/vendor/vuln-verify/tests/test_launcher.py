@@ -110,6 +110,16 @@ class TestLaunch:
         cmd = mock_popen_success.call_args_list[0][0][0]
         assert "--model" not in cmd
 
+    def test_prompt_includes_secflow_skills_lifecycle(self, mock_assembled_dir, threat_file, mock_popen_success):
+        with patch("vuln_verify.launcher.load_prompt", return_value="prompt"):
+            launch(mock_assembled_dir, threat_file)
+
+        cmd = mock_popen_success.call_args_list[0][0][0]
+        prompt = cmd[cmd.index("-p") + 1]
+        assert "SecFlow Skills Lifecycle" in prompt
+        assert "wiki-mount" in prompt
+        assert "task-collect" in prompt
+
     def test_concurrency_passed_to_executor(self, mock_assembled_dir, threat_file):
         """Verify ThreadPoolExecutor receives the concurrency value."""
         with (

@@ -1,0 +1,60 @@
+dimensions:
+  cwe_category:
+    description: "CWE weakness category"
+    required: true
+    single_value: false
+    extensible: true
+    values:
+      - CWE-22    # Path Traversal
+      - CWE-78    # OS Command Injection
+      - CWE-79    # Cross-site Scripting (XSS)
+      - CWE-89    # SQL Injection
+      - CWE-94    # Code Injection
+      - CWE-119   # Buffer Overflow
+      - CWE-125   # Out-of-bounds Read
+      - CWE-190   # Integer Overflow
+      - CWE-200   # Information Exposure
+      - CWE-264   # Permissions/Privileges
+      - CWE-287   # Improper Authentication
+      - CWE-306   # Missing Authentication
+      - CWE-352   # Cross-Site Request Forgery
+      - CWE-416   # Use After Free
+      - CWE-476   # NULL Pointer Dereference
+      - CWE-502   # Deserialization of Untrusted Data
+      - CWE-611   # XML External Entity (XXE)
+      - CWE-787   # Out-of-bounds Write
+      - CWE-862   # Missing Authorization
+      - CWE-918   # Server-Side Request Forgery (SSRF)
+
+  severity:
+    description: "Vulnerability severity level"
+    required: true
+    single_value: true
+    extensible: false
+    values:
+      - critical
+      - high
+      - medium
+      - low
+      - note
+
+  vuln_type:
+    description: "Vulnerability class"
+    required: true
+    single_value: false
+    extensible: true
+    values:
+      - memory-corruption
+      - injection
+      - authentication-bypass
+      - authorization-flaw
+      - information-disclosure
+      - denial-of-service
+      - race-condition
+      - cryptographic-weakness
+      - configuration-error
+      - logic-flaw
+      - privilege-escalation
+      - path-traversal
+      - deserialization
+      - ssrf

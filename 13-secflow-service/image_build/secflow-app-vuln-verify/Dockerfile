@@ -18,6 +18,7 @@ COPY requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r /app/requirements.txt
 
 COPY vendor/vuln-verify /opt/vuln-verify
+COPY skills/ /opt/secflow-skills/
 
 COPY app/ /app/app/
 COPY config.yaml /app/config.yaml

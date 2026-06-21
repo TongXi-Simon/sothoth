@@ -2,7 +2,13 @@
 set -e
 
 PI_DIR="${PI_CODING_AGENT_DIR:-/root/.pi/agent}"
-mkdir -p "$PI_DIR"
+SECOCTO_DIR="/root/.config/secocto"
+mkdir -p "$PI_DIR" "$PI_DIR/skills" "$SECOCTO_DIR"
+
+if [ -d /opt/secflow-skills ]; then
+    cp -a /opt/secflow-skills/. "$PI_DIR/skills/"
+    echo "[entrypoint] installed secflow skills -> $PI_DIR/skills"
+fi
 
 if [ -f /data/pi-re-agent-config/models.json ]; then
     ln -sf /data/pi-re-agent-config/models.json "$PI_DIR/models.json"
